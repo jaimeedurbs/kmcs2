@@ -5,6 +5,7 @@ format: revealjs
 editor: visual
 self-contained: true
 date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
 ---
 
 # Introduction
@@ -80,8 +81,8 @@ date: "`r Sys.Date()`"
 -   prestige: it is an optional Mode that players can choose after they progress to Level 55 and max
 -   hits : number of times the player damaged another player
 -   timePlayed : the time spent by every player playing Call of Duty in hours
--   headshots : number of times the player hit the others with head-shots
--   averageTime : average time
+-   headshots : number of times the player hit the others with headshots
+-   averageTime : avrage time
 -   gamesPlayed : number of times the player plays a match
 
 ## Data Features 3/3
@@ -91,7 +92,7 @@ date: "`r Sys.Date()`"
 -   xp : Experience Points (XP) are a numerical quantity exclusive to multiplayer that dictates a player's level and progress in the game.
 -   scorePerMinute :a measure of how many points players are gaining per unit time.
 -   shots : number of shots the player did
--   deaths : number of time the player got killed in the game.
+-   deaths : number of time the player gots killed in the game.
 
 ## Pearson Correlation
 
