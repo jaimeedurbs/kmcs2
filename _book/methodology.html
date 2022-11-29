@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Methodology | K-Means Clustering</title>
+  <meta name="description" content="3 Methodology | K-Means Clustering" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Methodology | K-Means Clustering" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Methodology | K-Means Clustering" />
+  
+  
+  
+
+<meta name="author" content="Gary Baine, Jaimee Clark, Mario Tobar" />
+
+
+<meta name="date" content="2022-11-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="k-means-clustering.html"/>
+<link rel="next" href="conclusion-results.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#statement-of-the-problem"><i class="fa fa-check"></i><b>1.1</b> Statement of the Problem</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#relevance"><i class="fa fa-check"></i><b>1.2</b> Relevance</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#literature-review"><i class="fa fa-check"></i><b>1.3</b> Literature Review</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="k-means-clustering.html"><a href="k-means-clustering.html"><i class="fa fa-check"></i><b>2</b> K Means Clustering</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="k-means-clustering.html"><a href="k-means-clustering.html#k-means-clustering---basics"><i class="fa fa-check"></i><b>2.1</b> K Means Clustering - Basics</a></li>
+<li class="chapter" data-level="2.2" data-path="k-means-clustering.html"><a href="k-means-clustering.html#k-means-clustering---limitations"><i class="fa fa-check"></i><b>2.2</b> K Means Clustering - Limitations</a></li>
+<li class="chapter" data-level="2.3" data-path="k-means-clustering.html"><a href="k-means-clustering.html#k-means-clustering---other-info"><i class="fa fa-check"></i><b>2.3</b> K Means Clustering - Other Info</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="methodology.html"><a href="methodology.html"><i class="fa fa-check"></i><b>3</b> Methodology</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="methodology.html"><a href="methodology.html#data"><i class="fa fa-check"></i><b>3.1</b> Data</a></li>
+<li class="chapter" data-level="3.2" data-path="methodology.html"><a href="methodology.html#data-features-13"><i class="fa fa-check"></i><b>3.2</b> Data Features 1/3</a></li>
+<li class="chapter" data-level="3.3" data-path="methodology.html"><a href="methodology.html#data-features-23"><i class="fa fa-check"></i><b>3.3</b> Data Features 2/3</a></li>
+<li class="chapter" data-level="3.4" data-path="methodology.html"><a href="methodology.html#data-features-33"><i class="fa fa-check"></i><b>3.4</b> Data Features 3/3</a></li>
+<li class="chapter" data-level="3.5" data-path="methodology.html"><a href="methodology.html#pearson-correlation"><i class="fa fa-check"></i><b>3.5</b> Pearson Correlation</a></li>
+<li class="chapter" data-level="3.6" data-path="methodology.html"><a href="methodology.html#process"><i class="fa fa-check"></i><b>3.6</b> Process</a></li>
+<li class="chapter" data-level="3.7" data-path="methodology.html"><a href="methodology.html#ending-the-process"><i class="fa fa-check"></i><b>3.7</b> Ending the Process</a></li>
+<li class="chapter" data-level="3.8" data-path="methodology.html"><a href="methodology.html#cluster-results"><i class="fa fa-check"></i><b>3.8</b> Cluster Results</a></li>
+<li class="chapter" data-level="3.9" data-path="methodology.html"><a href="methodology.html#choosing-an-appropriate-amount-of-clusters"><i class="fa fa-check"></i><b>3.9</b> Choosing an Appropriate amount of Clusters</a></li>
+<li class="chapter" data-level="3.10" data-path="methodology.html"><a href="methodology.html#applying-the-elbow-method-on-our-data"><i class="fa fa-check"></i><b>3.10</b> Applying the Elbow Method on our data</a></li>
+<li class="chapter" data-level="3.11" data-path="methodology.html"><a href="methodology.html#silhouette-method"><i class="fa fa-check"></i><b>3.11</b> Silhouette Method</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="conclusion-results.html"><a href="conclusion-results.html"><i class="fa fa-check"></i><b>4</b> Conclusion Results</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="conclusion-results.html"><a href="conclusion-results.html#conclusion-and-final-results"><i class="fa fa-check"></i><b>4.1</b> Conclusion and Final Results</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">K-Means Clustering</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="methodology" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Methodology<a href="methodology.html#methodology" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="data" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Data<a href="methodology.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>The Data set comes from our friends at Kaggle</li>
+<li>This dataset contains the in-game behaviors for over 1,000 players</li>
+<li>There are 19 features from players name to time spent playing the game</li>
+</ul>
+</div>
+<div id="data-features-13" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Data Features 1/3<a href="methodology.html#data-features-13" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>name: this is the name for each player</li>
+<li>wins : number of times the player win a match</li>
+<li>kills : number of kills the player made in all his matches</li>
+<li>kdRatio : kill/deaths ratio that means, if a player has 10 kills and 5 deaths, his KD ratio is equal to 2. A KD ratio of 1 means that the player got killed exactly as many times as he successfully eliminated his opponents</li>
+<li>killstreak : kill a number of enemy players without dying.</li>
+<li>level : is the player grade</li>
+</ul>
+</div>
+<div id="data-features-23" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Data Features 2/3<a href="methodology.html#data-features-23" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>losses : total number of losing</li>
+<li>prestige: it is an optional Mode that players can choose after they progress to Level 55 and max</li>
+<li>hits : number of times the player damaged another player</li>
+<li>timePlayed : the time spent by every player playing Call of Duty in hours</li>
+<li>headshots : number of times the player hit the others with headshots</li>
+<li>averageTime : avrage time</li>
+<li>gamesPlayed : number of times the player plays a match</li>
+</ul>
+</div>
+<div id="data-features-33" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Data Features 3/3<a href="methodology.html#data-features-33" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>assists : number of times player damaging an enemy but a teammate gets the kill.</li>
+<li>misses : the number of times the player miss the hit</li>
+<li>xp : Experience Points (XP) are a numerical quantity exclusive to multiplayer that dictates a player’s level and progress in the game.</li>
+<li>scorePerMinute :a measure of how many points players are gaining per unit time.</li>
+<li>shots : number of shots the player did</li>
+<li>deaths : number of time the player gots killed in the game.</li>
+</ul>
+</div>
+<div id="pearson-correlation" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Pearson Correlation<a href="methodology.html#pearson-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="heatmap.png" width="600" height="362" /></p>
+<ul>
+<li>First we created a heatmap of correlations to see if there are any patterns that immediately stick out</li>
+</ul>
+</div>
+<div id="process" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Process<a href="methodology.html#process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>First step in the scaling process is to decide how many clusters we want generated in the final output</li>
+<li>K-means algorithm will randomly select k objects from the data to serve as initial centroids</li>
+<li>Each remaining data points are assigned to its closest centroid as measured by Euclidean distance between each object and the cluster mean</li>
+<li>Then the algorithm finds the new mean value for each cluster</li>
+</ul>
+</div>
+<div id="ending-the-process" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Ending the Process<a href="methodology.html#ending-the-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Each observation is checked again and reassigned if there is a new closest centroid</li>
+<li>Process ends when the cluster assignments stop changing</li>
+<li>The process by which assignments stop changing is called “convergence”</li>
+</ul>
+</div>
+<div id="cluster-results" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Cluster Results<a href="methodology.html#cluster-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="Rplot.png" /></p>
+</div>
+<div id="choosing-an-appropriate-amount-of-clusters" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> Choosing an Appropriate amount of Clusters<a href="methodology.html#choosing-an-appropriate-amount-of-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Elbow method</p></li>
+<li><p>This method vary the amount of clusters, k, and compute the clustering algorithm</p></li>
+<li><p>Calculate the total within-cluster sum of squares (wss) for each k</p></li>
+<li><p>Plot the curve of wss based on k</p></li>
+<li><p>Where the curve “elbows” or bends significantly is indication of the optimal number of clusters to use for the analysis</p></li>
+</ul>
+</div>
+<div id="applying-the-elbow-method-on-our-data" class="section level2 hasAnchor" number="3.10">
+<h2><span class="header-section-number">3.10</span> Applying the Elbow Method on our data<a href="methodology.html#applying-the-elbow-method-on-our-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="Wss.png" /></p>
+</div>
+<div id="silhouette-method" class="section level2 hasAnchor" number="3.11">
+<h2><span class="header-section-number">3.11</span> Silhouette Method<a href="methodology.html#silhouette-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>This method analyzes the quality of clustering</p></li>
+<li><p>Higher average silhouette widths indicate good clustering</p></li>
+<li><p>Similar to the elbow method, this method varies the value of k and finds the value that maximizes the average silhouette</p>
+<p><img src="silhouette.png" /></p></li>
+</ul>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="k-means-clustering.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion-results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
