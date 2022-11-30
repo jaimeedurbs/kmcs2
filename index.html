@@ -443,7 +443,7 @@
   <meta name="generator" content="quarto-1.1.189">
 
   <meta name="author" content="Gary Baine, Jaimee Clark, Mario Tobar">
-  <meta name="dcterms.date" content="2022-11-29">
+  <meta name="dcterms.date" content="2022-11-30">
   <title>K-Means Clustering</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1144,7 +1144,7 @@ margin-right: 0; }
 <section id="title-slide" class="center">
   <h1 class="title">K-Means Clustering</h1>
   <p class="author">Gary Baine, Jaimee Clark, Mario Tobar</p>
-  <p class="date">2022-11-29</p>
+  <p class="date">2022-11-30</p>
 </section>
 
 <section>
@@ -1158,7 +1158,7 @@ margin-right: 0; }
 <li>Video Games are an escape for people which makes it universally enjoyable</li>
 <li>Call of Duty is the leader of First Person Shooting</li>
 <li>New games come out once a year</li>
-<li>The Goal of this presentation</li>
+<li>The Goal of this presentation is to walk through k-means clustering, break down it’s process and components and show an analysis on a real world dataset</li>
 </ul>
 </section>
 <section id="relevance" class="slide level2">
@@ -1230,9 +1230,10 @@ margin-right: 0; }
 <section id="data" class="slide level2">
 <h2>Data</h2>
 <ul>
-<li>The Data set comes from our friends at Kaggle</li>
+<li>The dataset comes from our friends at Kaggle</li>
 <li>This dataset contains the in-game behaviors for over 1,000 players</li>
 <li>There are 19 features from players name to time spent playing the game</li>
+<li>The data was acquired by rapid API made By <a href="https://rapidapi.com/elreco/api/call-of-duty-modern-warfare/details">elreco</a></li>
 </ul>
 </section>
 <section id="data-features-13" class="slide level2">
@@ -1290,7 +1291,10 @@ margin-right: 0; }
 <ul>
 <li>Each observation is checked again and reassigned if there is a new closest centroid</li>
 <li>Process ends when the cluster assignments stop changing</li>
-<li>The process by which assignments stop changing is called “convergence”</li>
+<li>The process by which assignments stop changing is called convergence
+<ul>
+<li>The algorithm determines convergence when the centroids in k-means remains in the same place for 2 iterations</li>
+</ul></li>
 </ul>
 </section>
 <section id="cluster-results" class="slide level2">
@@ -1300,7 +1304,10 @@ margin-right: 0; }
 <section id="choosing-an-appropriate-amount-of-clusters" class="slide level2">
 <h2>Choosing an Appropriate amount of Clusters</h2>
 <ul>
-<li><p>Elbow method</p></li>
+<li><p>Elbow method</p>
+<ul>
+<li></li>
+</ul></li>
 <li><p>This method vary the amount of clusters, k, and compute the clustering algorithm</p></li>
 <li><p>Calculate the total within-cluster sum of squares (wss) for each k</p></li>
 <li><p>Plot the curve of wss based on k</p></li>
