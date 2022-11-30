@@ -3,9 +3,9 @@ title: "K-Means Clustering"
 author: "Gary Baine, Jaimee Clark, Mario Tobar"
 self-contained: true
 format: revealjs
+editor: visual
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-editor: visual
 ---
 
 ```{r, include=FALSE}
@@ -57,9 +57,9 @@ melted_cormat <- melt(upper_tri, na.rm = TRUE)
 ## Statement of the Problem
 
 -   Video Games are an escape for people which makes it universally enjoyable
--   Call of Duty is the leader of First Person Shooting
--   New games come out once a year
--   The Goal of this presentation is to walk through k-means clustering, break down it's process and components and show an analysis on a real world dataset
+-   Call of Duty (CoD) is the leader of First Person Shooting
+-   New games of CoD come out once a year
+-   The Goal of this presentation is to walk through k-means clustering, break down it's process and components and show an analysis on a real world dataset.
 
 ## Relevance
 
