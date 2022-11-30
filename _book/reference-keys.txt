@@ -20,3 +20,4 @@ applying-the-elbow-method-on-our-data
 silhouette-method
 conclusion-results
 conclusion-and-final-results
+elbow-method

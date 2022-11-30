@@ -23,7 +23,7 @@
 <meta name="author" content="Gary Baine, Jaimee Clark, Mario Tobar" />
 
 
-<meta name="date" content="2022-11-29" />
+<meta name="date" content="2022-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -91,13 +91,10 @@
 <li class="chapter" data-level="3.7" data-path="methodology.html"><a href="methodology.html#ending-the-process"><i class="fa fa-check"></i><b>3.7</b> Ending the Process</a></li>
 <li class="chapter" data-level="3.8" data-path="methodology.html"><a href="methodology.html#cluster-results"><i class="fa fa-check"></i><b>3.8</b> Cluster Results</a></li>
 <li class="chapter" data-level="3.9" data-path="methodology.html"><a href="methodology.html#choosing-an-appropriate-amount-of-clusters"><i class="fa fa-check"></i><b>3.9</b> Choosing an Appropriate amount of Clusters</a></li>
-<li class="chapter" data-level="3.10" data-path="methodology.html"><a href="methodology.html#applying-the-elbow-method-on-our-data"><i class="fa fa-check"></i><b>3.10</b> Applying the Elbow Method on our data</a></li>
+<li class="chapter" data-level="3.10" data-path="methodology.html"><a href="methodology.html#elbow-method"><i class="fa fa-check"></i><b>3.10</b> Elbow Method</a></li>
 <li class="chapter" data-level="3.11" data-path="methodology.html"><a href="methodology.html#silhouette-method"><i class="fa fa-check"></i><b>3.11</b> Silhouette Method</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="conclusion-results.html"><a href="conclusion-results.html"><i class="fa fa-check"></i><b>4</b> Conclusion Results</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="conclusion-results.html"><a href="conclusion-results.html#conclusion-and-final-results"><i class="fa fa-check"></i><b>4.1</b> Conclusion and Final Results</a></li>
-</ul></li>
+<li class="chapter" data-level="4" data-path="conclusion-and-final-results.html"><a href="conclusion-and-final-results.html"><i class="fa fa-check"></i><b>4</b> Conclusion and Final Results</a></li>
 </ul>
 
       </nav>
@@ -120,10 +117,20 @@
 <div id="k-means-clustering---basics" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> K Means Clustering - Basics<a href="k-means-clustering.html#k-means-clustering---basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>The clusters are each represented by a center point, a centroid</li>
-<li>This centroid is found by an initial value, seed points</li>
+<li>The clusters are each represented by a center point, a centroid
+<ul>
+<li>a centriod is the center of each cluster that represents that cluster</li>
+</ul></li>
+<li>This centroid is found by an initial value
+<ul>
+<li>seed points</li>
+</ul></li>
 <li>Then the k-means calculates the squared distance between the input data points</li>
-<li>Thus assigns that value to the centroids</li>
+<li>Thus assigns that value to the centroids.</li>
+<li>The Hartigan-Wong equation is what is used to assign these centriods</li>
+<li><span class="math inline">\(W(C_k)=\sum_{x_{i}\in{C_k}}(x_i-\mu_k)^2\)</span></li>
+<li>Where <span class="math inline">\(x_i\)</span> is a data point in cluster <span class="math inline">\(C_k\)</span> and <span class="math inline">\(\mu_k\)</span> is the mean value of the points within cluster <span class="math inline">\(C_k\)</span>.</li>
+<li>We assign a point <span class="math inline">\((x_i)\)</span> to a cluster by minimizing the sum of squares (SS) distance of the observation to the cluster center <span class="math inline">\((\mu_k)\)</span>.</li>
 </ul>
 </div>
 <div id="k-means-clustering---limitations" class="section level2 hasAnchor" number="2.2">
@@ -131,7 +138,10 @@
 <ul>
 <li>Number of clusters is predetermined</li>
 <li>The results of k-means depend on the initials cluster centers</li>
-<li>Algorithm contains the dead-unto problem</li>
+<li>Algorithm contains the dead-unit problem
+<ul>
+<li>some units are initialized far away from the dataset thus becoming immediately “dead”</li>
+</ul></li>
 <li>Knowing about your data is a must so that the proper number of clusters can be determined</li>
 <li>Clusters if under the right circumstances can contain little to no data</li>
 <li>Constraints can help with limitations</li>
@@ -208,6 +218,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

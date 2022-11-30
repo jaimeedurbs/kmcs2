@@ -23,7 +23,7 @@
 <meta name="author" content="Gary Baine, Jaimee Clark, Mario Tobar" />
 
 
-<meta name="date" content="2022-11-29" />
+<meta name="date" content="2022-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="k-means-clustering.html"/>
-<link rel="next" href="conclusion-results.html"/>
+<link rel="next" href="conclusion-and-final-results.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -91,13 +91,10 @@
 <li class="chapter" data-level="3.7" data-path="methodology.html"><a href="methodology.html#ending-the-process"><i class="fa fa-check"></i><b>3.7</b> Ending the Process</a></li>
 <li class="chapter" data-level="3.8" data-path="methodology.html"><a href="methodology.html#cluster-results"><i class="fa fa-check"></i><b>3.8</b> Cluster Results</a></li>
 <li class="chapter" data-level="3.9" data-path="methodology.html"><a href="methodology.html#choosing-an-appropriate-amount-of-clusters"><i class="fa fa-check"></i><b>3.9</b> Choosing an Appropriate amount of Clusters</a></li>
-<li class="chapter" data-level="3.10" data-path="methodology.html"><a href="methodology.html#applying-the-elbow-method-on-our-data"><i class="fa fa-check"></i><b>3.10</b> Applying the Elbow Method on our data</a></li>
+<li class="chapter" data-level="3.10" data-path="methodology.html"><a href="methodology.html#elbow-method"><i class="fa fa-check"></i><b>3.10</b> Elbow Method</a></li>
 <li class="chapter" data-level="3.11" data-path="methodology.html"><a href="methodology.html#silhouette-method"><i class="fa fa-check"></i><b>3.11</b> Silhouette Method</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="conclusion-results.html"><a href="conclusion-results.html"><i class="fa fa-check"></i><b>4</b> Conclusion Results</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="conclusion-results.html"><a href="conclusion-results.html#conclusion-and-final-results"><i class="fa fa-check"></i><b>4.1</b> Conclusion and Final Results</a></li>
-</ul></li>
+<li class="chapter" data-level="4" data-path="conclusion-and-final-results.html"><a href="conclusion-and-final-results.html"><i class="fa fa-check"></i><b>4</b> Conclusion and Final Results</a></li>
 </ul>
 
       </nav>
@@ -120,9 +117,10 @@
 <div id="data" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Data<a href="methodology.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>The Data set comes from our friends at Kaggle</li>
+<li>The dataset comes from our friends at Kaggle</li>
 <li>This dataset contains the in-game behaviors for over 1,000 players</li>
 <li>There are 19 features from players name to time spent playing the game</li>
+<li>The data was acquired by rapid API made By <a href="https://rapidapi.com/elreco/api/call-of-duty-modern-warfare/details">elreco</a></li>
 </ul>
 </div>
 <div id="data-features-13" class="section level2 hasAnchor" number="3.2">
@@ -144,7 +142,7 @@
 <li>hits : number of times the player damaged another player</li>
 <li>timePlayed : the time spent by every player playing Call of Duty in hours</li>
 <li>headshots : number of times the player hit the others with headshots</li>
-<li>averageTime : avrage time</li>
+<li>averageTime : average time</li>
 <li>gamesPlayed : number of times the player plays a match</li>
 </ul>
 </div>
@@ -154,24 +152,28 @@
 <li>assists : number of times player damaging an enemy but a teammate gets the kill.</li>
 <li>misses : the number of times the player miss the hit</li>
 <li>xp : Experience Points (XP) are a numerical quantity exclusive to multiplayer that dictates a player’s level and progress in the game.</li>
-<li>scorePerMinute :a measure of how many points players are gaining per unit time.</li>
+<li>scorePerMinute: a measure of how many points players are gaining per unit time.</li>
 <li>shots : number of shots the player did</li>
-<li>deaths : number of time the player gots killed in the game.</li>
+<li>deaths : number of time the player got killed in the game.</li>
 </ul>
 </div>
 <div id="pearson-correlation" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Pearson Correlation<a href="methodology.html#pearson-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="heatmap.png" width="600" height="362" /></p>
 <ul>
-<li>First we created a heatmap of correlations to see if there are any patterns that immediately stick out</li>
+<li>First we created a heatmap of correlations to see if there are any patterns that immediately stick out:</li>
 </ul>
+<p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <div id="process" class="section level2 hasAnchor" number="3.6">
 <h2><span class="header-section-number">3.6</span> Process<a href="methodology.html#process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>First step in the scaling process is to decide how many clusters we want generated in the final output</li>
 <li>K-means algorithm will randomly select k objects from the data to serve as initial centroids</li>
-<li>Each remaining data points are assigned to its closest centroid as measured by Euclidean distance between each object and the cluster mean</li>
+<li>Each remaining data points are assigned to its closest centroid as measured by Euclidean distance between each object and the cluster mean
+<ul>
+<li><p><span class="math inline">\(d_{euc}(x,y) = \sqrt{\sum_{i=1}^n(x_{i}+y_{i})^2}\)</span></p></li>
+<li><p>Where x and y are two vectors of n length</p></li>
+</ul></li>
 <li>Then the algorithm finds the new mean value for each cluster</li>
 </ul>
 </div>
@@ -180,35 +182,49 @@
 <ul>
 <li>Each observation is checked again and reassigned if there is a new closest centroid</li>
 <li>Process ends when the cluster assignments stop changing</li>
-<li>The process by which assignments stop changing is called “convergence”</li>
+<li>The process by which assignments stop changing is called convergence
+<ul>
+<li>The algorithm determines convergence when the centroids in k-means remains in the same place for 2 iterations</li>
+</ul></li>
 </ul>
 </div>
 <div id="cluster-results" class="section level2 hasAnchor" number="3.8">
 <h2><span class="header-section-number">3.8</span> Cluster Results<a href="methodology.html#cluster-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="Rplot.png" /></p>
+<p>Here are the cluster results for clusters k=2,3,4, and 5.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="choosing-an-appropriate-amount-of-clusters" class="section level2 hasAnchor" number="3.9">
 <h2><span class="header-section-number">3.9</span> Choosing an Appropriate amount of Clusters<a href="methodology.html#choosing-an-appropriate-amount-of-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Elbow method</p></li>
+<li><p>The elbow method runs k-means clustering on the dataset for a range of values for k and then for each value of k computes an average score for all clusters.</p></li>
 <li><p>This method vary the amount of clusters, k, and compute the clustering algorithm</p></li>
-<li><p>Calculate the total within-cluster sum of squares (wss) for each k</p></li>
+<li><p>Calculate the total within-cluster sum of squares (wss) for each k</p>
+<ul>
+<li>Total within-cluster variation:
+<ul>
+<li><span class="math inline">\(tot.withiness = sum_{k=1}^kW(C_k)=\sum_{{k=1}^k}\sum_{x_{i}\in{C_k}}(x_i-\mu_k)^2\)</span></li>
+</ul></li>
+<li>Within cluster sum of squares by cluster:
+[1] 8376.374 6423.792
+(between_SS / total_SS = 47.2 %)</li>
+</ul></li>
 <li><p>Plot the curve of wss based on k</p></li>
 <li><p>Where the curve “elbows” or bends significantly is indication of the optimal number of clusters to use for the analysis</p></li>
 </ul>
 </div>
-<div id="applying-the-elbow-method-on-our-data" class="section level2 hasAnchor" number="3.10">
-<h2><span class="header-section-number">3.10</span> Applying the Elbow Method on our data<a href="methodology.html#applying-the-elbow-method-on-our-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="Wss.png" /></p>
+<div id="elbow-method" class="section level2 hasAnchor" number="3.10">
+<h2><span class="header-section-number">3.10</span> Elbow Method<a href="methodology.html#elbow-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="silhouette-method" class="section level2 hasAnchor" number="3.11">
 <h2><span class="header-section-number">3.11</span> Silhouette Method<a href="methodology.html#silhouette-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>This method analyzes the quality of clustering</p></li>
 <li><p>Higher average silhouette widths indicate good clustering</p></li>
-<li><p>Similar to the elbow method, this method varies the value of k and finds the value that maximizes the average silhouette</p>
-<p><img src="silhouette.png" /></p></li>
+<li><p>Similar to the elbow method, this method varies the value of k and finds the value that maximizes the average silhouette</p></li>
 </ul>
+<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 </div>
             </section>
@@ -217,7 +233,7 @@
         </div>
       </div>
 <a href="k-means-clustering.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="conclusion-results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="conclusion-and-final-results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -271,6 +287,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

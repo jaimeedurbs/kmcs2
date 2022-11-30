@@ -86,7 +86,7 @@ melted_cormat <- melt(upper_tri, na.rm = TRUE)
     -   seed points
 -   Then the k-means calculates the squared distance between the input data points
 
-## K Means Clustering - Basics cont.
+## K Means Clustering - Centriods
 
 -   Thus assigns that value to the centroids.
 -   The Hartigan-Wong equation is what is used to assign these centriods

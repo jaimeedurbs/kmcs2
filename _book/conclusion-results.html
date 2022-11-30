@@ -23,7 +23,7 @@
 <meta name="author" content="Gary Baine, Jaimee Clark, Mario Tobar" />
 
 
-<meta name="date" content="2022-11-29" />
+<meta name="date" content="2022-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -124,7 +124,10 @@
 <li><p>In cluster 1, the average number of wins is 59.2</p></li>
 <li><p>In cluster 2, the average number of wins is 755</p></li>
 <li><p>Differentiating between Great and Bad Players</p></li>
-<li><p>Could add a 3rd cluster, but it would not be ideal</p></li>
+<li><p>Could add a 3rd cluster, but it would not be ideal</p>
+<ul>
+<li>A third cluster is not ideal simply because of the math calculated by the elbow and the silhouette methods. It would be interesting, however, if we wanted to see if there was a delineation between “bad”, “average”, and “good” players. 2 clusters shows us only a division between “good” and “bad”. There is one of those times where balancing between understanding the data and the point of the analysis meets following the hard and fast rules of the technique.</li>
+</ul></li>
 </ul>
 
 </div>
@@ -189,6 +192,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
